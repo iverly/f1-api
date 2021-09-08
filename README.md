@@ -10,6 +10,7 @@ A wrapper of Ergast API for Node.js
 
 - Get driver information
 - Get constructor information
+- Get constructors by year
 
 ## Installation
 
