@@ -1,4 +1,4 @@
-const F1 = require('../dist/index');
+const f1 = require('../dist/index');
 
-F1.getDriverInformation('russell')
+f1.getDriverInformation('russell')
     .then(console.log);
