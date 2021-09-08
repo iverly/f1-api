@@ -4,7 +4,7 @@
 ![last logo](https://img.shields.io/github/last-commit/iverly/f1-api)
 ![license logo](https://img.shields.io/github/license/iverly/f1-api)
 
-A wrapper of Ergast API for Node.js
+A wrapper of Ergast API for Node.js. The easiest way to get data of Formula 1.
 
 ## Features
 
