@@ -1,0 +1,6 @@
+.github/
+examples/
+lib/
+node_modules/
+tsconfig.json
+tslint.json
