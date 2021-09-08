@@ -1,5 +1,5 @@
 import Parser from '@parsers/parser';
-import { Driver } from '../utils/types';
+import { Driver } from '@utils/types';
 
 export default class DriverParser extends Parser {
 

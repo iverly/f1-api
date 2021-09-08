@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import to from 'await-to-js';
-import Parser from 'lib/parsers/parser';
+import Parser from '@parsers/parser';
 
 const BASE_URL = 'http://ergast.com/api/f1';
 
@@ -17,5 +17,5 @@ const cleanResponses = (data: any): any => {
     if (!MRData) {
         return null;
     }
-    return MRData.DriverTable;
+    return MRData.DriverTable || MRData.ConstructorTable;
 };

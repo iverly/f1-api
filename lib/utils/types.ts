@@ -9,3 +9,11 @@ export interface Driver {
     birthday: string;
     nationality: string;
 }
+
+export type Constructors = Constructor[];
+
+export interface Constructor {
+    id: string;
+    name: string;
+    nationality: string;
+}

@@ -10,7 +10,9 @@
         "paths": {
             "@/*": ["./lib/*"],
             "@parsers": ["./lib/parsers"],
-            "@parsers/*": ["./lib/parsers/*"]
+            "@parsers/*": ["./lib/parsers/*"],
+            "@utils": ["./lib/utils"],
+            "@utils/*": ["./lib/utils/*"]
         },
         "plugins": [{
             "transform": "@zerollup/ts-transform-paths"

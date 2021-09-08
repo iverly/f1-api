@@ -9,6 +9,7 @@ A wrapper of Ergast API for Node.js
 ## Features
 
 - Get driver information
+- Get constructor information
 
 ## Installation
 
