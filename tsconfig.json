@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "strict": false,
+        "noImplicitUseStrict": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "declaration": true,
+        "paths": {
+            "@/*": ["./lib/*"],
+            "@parsers": ["./lib/parsers"],
+            "@parsers/*": ["./lib/parsers/*"]
+        },
+        "plugins": [{
+            "transform": "@zerollup/ts-transform-paths"
+        }]
+    },
+    "include": [
+        "lib/**/*.ts"
+    ]
+}
