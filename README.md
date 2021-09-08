@@ -9,6 +9,7 @@ A wrapper of Ergast API for Node.js
 ## Features
 
 - Get driver information
+- Get drivers by year
 - Get constructor information
 - Get constructors by year
 
