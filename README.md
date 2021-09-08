@@ -30,6 +30,14 @@ f1.getDriverInformation('russell')
     .then({id, code, number, firstName, lastName, birthday, nationality} => {
         // do some thing with data !
     });
+
+f1.getConstructorInformation('mercedes')
+    .then({id, name, nationality} => {
+        // do some thing with data !
+    });
+
+f1.getConstructors('2018')
+    .then(console.log);
 ```
 
 You can find all examples in the `examples` directory.
