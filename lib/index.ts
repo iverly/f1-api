@@ -1,9 +1,10 @@
 import DriverParser from '@parsers/driver';
 import { makeRequest } from '@utils/request';
-import { Constructor, Constructors, Driver, Drivers } from '@utils/types';
+import { Constructor, Constructors, Driver, Drivers, DriverStandings } from '@utils/types';
 import ConstructorParser from '@parsers/constructor';
 import ConstructorsParser from '@parsers/constructors';
-import DriversParser from './parsers/drivers';
+import DriversParser from '@parsers/drivers';
+import DriverStandingsParser from '@parsers/driverStandings';
 
 const getCurrentConstructors = async (): Promise<Constructors> => {
     return getConstructors(new Date().getFullYear());
@@ -29,6 +30,18 @@ const getConstructorInformation = async (id: string): Promise<Constructor> => {
     return makeRequest<Constructor>(`/constructors/${id}`, ConstructorParser.getInstance());
 };
 
+const getCurrentDriverStandings = async (): Promise<DriverStandings> => {
+    return makeRequest<DriverStandings>('/current/driverStandings', DriverStandingsParser.getInstance());
+};
+
+const getDriverStandings = async (year: number | string, round: number): Promise<DriverStandings> => {
+    let url = `/${year}/driverStandings`;
+    if (round && isFinite(round) && round > 0) {
+        url = `/${year}/${round}/driverStandings`;
+    }
+    return makeRequest<DriverStandings>(url, DriverStandingsParser.getInstance());
+};
+
 export {
     getCurrentConstructors,
     getConstructors,
@@ -36,4 +49,6 @@ export {
     getDrivers,
     getDriverInformation,
     getConstructorInformation,
+    getCurrentDriverStandings,
+    getDriverStandings,
 };

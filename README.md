@@ -10,6 +10,7 @@ A wrapper of Ergast API for Node.js
 
 - Get driver information
 - Get drivers by year
+- Get driver standings
 - Get constructor information
 - Get constructors by year
 
@@ -39,6 +40,9 @@ f1.getConstructorInformation('mercedes')
 
 f1.getConstructors('2018')
     .then(console.log);
+
+f1.getCurrentDriverStandings()
+    .then(console.log)
 ```
 
 You can find all examples in the `examples` directory.

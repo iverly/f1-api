@@ -17,3 +17,13 @@ export interface Constructor {
     name: string;
     nationality: string;
 }
+
+export type DriverStandings = DriverStanding[];
+
+export interface DriverStanding {
+    position: number;
+    points: number;
+    wins: number;
+    driver: Driver;
+    constructor: Constructor;
+}
