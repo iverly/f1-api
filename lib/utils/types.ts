@@ -27,3 +27,12 @@ export interface DriverStanding {
     driver: Driver;
     constructor: Constructor;
 }
+
+export type ConstructorStandings = ConstructorStanding[];
+
+export interface ConstructorStanding {
+    position: number;
+    points: number;
+    wins: number;
+    constructor: Constructor;
+}

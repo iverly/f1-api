@@ -1,10 +1,11 @@
 import DriverParser from '@parsers/driver';
 import { makeRequest } from '@utils/request';
-import { Constructor, Constructors, Driver, Drivers, DriverStandings } from '@utils/types';
+import { Constructor, Constructors, ConstructorStandings, Driver, Drivers, DriverStandings } from '@utils/types';
 import ConstructorParser from '@parsers/constructor';
 import ConstructorsParser from '@parsers/constructors';
 import DriversParser from '@parsers/drivers';
 import DriverStandingsParser from '@parsers/driverStandings';
+import ConstructorStandingsParser from './parsers/constructorStandings';
 
 const getCurrentConstructors = async (): Promise<Constructors> => {
     return getConstructors(new Date().getFullYear());
@@ -34,12 +35,24 @@ const getCurrentDriverStandings = async (): Promise<DriverStandings> => {
     return makeRequest<DriverStandings>('/current/driverStandings', DriverStandingsParser.getInstance());
 };
 
-const getDriverStandings = async (year: number | string, round: number): Promise<DriverStandings> => {
+const getDriverStandings = async (year: number | string, round?: number): Promise<DriverStandings> => {
     let url = `/${year}/driverStandings`;
     if (round && isFinite(round) && round > 0) {
         url = `/${year}/${round}/driverStandings`;
     }
     return makeRequest<DriverStandings>(url, DriverStandingsParser.getInstance());
+};
+
+const getCurrentConstructorStandings = async (): Promise<ConstructorStandings> => {
+    return makeRequest<ConstructorStandings>('/current/constructorStandings', ConstructorStandingsParser.getInstance());
+};
+
+const getConstructorStandings = async (year: number | string, round?: number): Promise<ConstructorStandings> => {
+    let url = `/${year}/constructorStandings`;
+    if (round && isFinite(round) && round > 0) {
+        url = `/${year}/${round}/constructorStandings`;
+    }
+    return makeRequest<ConstructorStandings>(url, ConstructorStandingsParser.getInstance());
 };
 
 export {
@@ -51,4 +64,6 @@ export {
     getConstructorInformation,
     getCurrentDriverStandings,
     getDriverStandings,
+    getCurrentConstructorStandings,
+    getConstructorStandings,
 };

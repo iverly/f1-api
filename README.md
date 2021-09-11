@@ -13,6 +13,7 @@ A wrapper of Ergast API for Node.js. The easiest way to get data of Formula 1.
 - Get driver standings
 - Get constructor information
 - Get constructors by year
+- Get constructor standings
 
 ## Installation
 
