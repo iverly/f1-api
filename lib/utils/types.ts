@@ -36,3 +36,26 @@ export interface ConstructorStanding {
     wins: number;
     constructor: Constructor;
 }
+
+export type RacesSchedule = RaceSchedule[];
+
+export interface RaceSchedule {
+    season: number;
+    round: number;
+    name: string;
+    circuit: Circuit;
+    date: Date;
+}
+
+export interface Circuit {
+    id: string;
+    name: string;
+    location: Location;
+}
+
+export interface Location {
+    latitude: number;
+    longitude: number;
+    country: string;
+    city: string;
+}

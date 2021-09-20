@@ -8,6 +8,7 @@ A wrapper of Ergast API for Node.js. The easiest way to get data of Formula 1.
 
 ## Features
 
+- Get races schedule
 - Get driver information
 - Get drivers by year
 - Get driver standings
@@ -43,6 +44,9 @@ f1.getConstructors('2018')
     .then(console.log);
 
 f1.getCurrentDriverStandings()
+    .then(console.log)
+
+f1.getCurrentSeasonRacesSchedule()
     .then(console.log)
 ```
 

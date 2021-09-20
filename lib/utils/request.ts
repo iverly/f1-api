@@ -17,5 +17,5 @@ const cleanResponses = (data: any): any => {
     if (!MRData) {
         return null;
     }
-    return MRData.DriverTable || MRData.ConstructorTable || MRData.StandingsTable;
+    return MRData.DriverTable || MRData.ConstructorTable || MRData.StandingsTable || MRData.RaceTable;
 };

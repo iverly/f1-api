@@ -1,11 +1,13 @@
 import DriverParser from '@parsers/driver';
-import { makeRequest } from '@utils/request';
-import { Constructor, Constructors, ConstructorStandings, Driver, Drivers, DriverStandings } from '@utils/types';
 import ConstructorParser from '@parsers/constructor';
 import ConstructorsParser from '@parsers/constructors';
 import DriversParser from '@parsers/drivers';
 import DriverStandingsParser from '@parsers/driverStandings';
-import ConstructorStandingsParser from './parsers/constructorStandings';
+import ConstructorStandingsParser from '@parsers/constructorStandings';
+import RacesScheduleParser from '@parsers/racesSchedule';
+
+import { makeRequest } from '@utils/request';
+import { Constructor, Constructors, ConstructorStandings, Driver, Drivers, DriverStandings, RacesSchedule } from '@utils/types';
 
 const getCurrentConstructors = async (): Promise<Constructors> => {
     return getConstructors(new Date().getFullYear());
@@ -55,6 +57,14 @@ const getConstructorStandings = async (year: number | string, round?: number): P
     return makeRequest<ConstructorStandings>(url, ConstructorStandingsParser.getInstance());
 };
 
+const getCurrentSeasonRacesSchedule = async (): Promise<RacesSchedule> => {
+    return makeRequest<RacesSchedule>('/current', RacesScheduleParser.getInstance());
+};
+
+const getSeasonRacesSchedule = async (year: number | string): Promise<RacesSchedule> => {
+    return makeRequest<RacesSchedule>(`/${year}`, RacesScheduleParser.getInstance());
+};
+
 export {
     getCurrentConstructors,
     getConstructors,
@@ -66,4 +76,6 @@ export {
     getDriverStandings,
     getCurrentConstructorStandings,
     getConstructorStandings,
+    getCurrentSeasonRacesSchedule,
+    getSeasonRacesSchedule,
 };
