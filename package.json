@@ -1,6 +1,6 @@
 {
     "name": "f1-api",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "A wrapper of Ergast API for Node.js. The easiest way to get data of Formula 1.",
     "keywords": [
         "f1",

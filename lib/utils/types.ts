@@ -31,7 +31,7 @@ export interface DriverStanding {
     points: number;
     wins: number;
     driver: Driver;
-    constructor: Constructor;
+    constructors: Constructors;
 }
 
 export type ConstructorStandings = ConstructorStanding[];
