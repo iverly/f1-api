@@ -18,6 +18,12 @@ export interface Constructor {
     nationality: string;
 }
 
+export interface StandingList<T> {
+    season: number;
+    round: number;
+    standings: T;
+}
+
 export type DriverStandings = DriverStanding[];
 
 export interface DriverStanding {

@@ -1,5 +1,5 @@
 export default abstract class Parser {
 
-    public abstract parse(data: any): any;
+    public abstract parse(data: any, extraParser?: Parser): any;
 
 }

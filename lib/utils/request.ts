@@ -4,12 +4,12 @@ import Parser from '@parsers/parser';
 
 const BASE_URL = 'http://ergast.com/api/f1';
 
-export const makeRequest = async <T>(url: string, parser: Parser): Promise<T> => {
+export const makeRequest = async <T>(url: string, parser: Parser, ...extraParams: any): Promise<T> => {
     const [err, response] = await to<AxiosResponse>(axios.get(`${BASE_URL}${url}.json`));
     if (err) {
         throw err;
     }
-    return parser.parse(cleanResponses(response?.data));
+    return parser.parse.apply(null, [cleanResponses(response?.data), ...extraParams]);
 };
 
 const cleanResponses = (data: any): any => {

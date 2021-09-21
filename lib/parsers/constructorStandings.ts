@@ -17,11 +17,12 @@ export default class ConstructorStandingsParser extends Parser {
         const constructorStandingParser = ConstructorStandingParser.getInstance();
         const constructorStandings = [];
 
-        if (!data?.StandingsLists || !data?.StandingsLists.length) {
+        if ((!data || !data.length) && (!data?.StandingsLists || !data?.StandingsLists.length)) {
             return constructorStandings;
         }
 
-        for (const constructorStandingData of data?.StandingsLists[0].ConstructorStandings || []) {
+        const dataList = data?.StandingsLists ? data?.StandingsLists[0].ConstructorStandings : data;
+        for (const constructorStandingData of dataList || []) {
             constructorStandings.push(constructorStandingParser.parse(constructorStandingData));
         }
 

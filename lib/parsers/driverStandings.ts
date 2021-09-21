@@ -16,11 +16,12 @@ export default class DriverStandingsParser extends Parser {
         const driverStandingParser = DriverStandingParser.getInstance();
         const driverStandings = [];
 
-        if (!data?.StandingsLists || !data?.StandingsLists.length) {
+        if ((!data || !data.length) && (!data?.StandingsLists || !data?.StandingsLists.length)) {
             return driverStandings;
         }
 
-        for (const driverStandingData of data?.StandingsLists[0].DriverStandings || []) {
+        const dataList = data.length ? data : data?.StandingsLists[0].DriverStandings;
+        for (const driverStandingData of dataList || []) {
             driverStandings.push(driverStandingParser.parse(driverStandingData));
         }
 
